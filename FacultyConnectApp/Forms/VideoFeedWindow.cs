@@ -9,6 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Web.WebView2.WinForms;
+using System.Net.Sockets;
+using System.IO;
+
 
 
 
@@ -24,11 +27,8 @@ namespace FacultyConnectApp.Forms
 
         private async void VideoFeedWindow_Load(object sender, EventArgs e)
         {
-            string streamUrl = "http://pr_nh_webcam.axiscam.net:8000/mjpg/video.mjpg?resolution=704x480";
-
-            await videoBrowser.EnsureCoreWebView2Async(null);
-            videoBrowser.CoreWebView2.Navigate("https://www.google.com");
-
+            
+            StartVideoConnection();
         }
 
         private void btnEndCall_Click(object sender, EventArgs e)
@@ -42,6 +42,104 @@ namespace FacultyConnectApp.Forms
         }
 
         private void videoBrowser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void StartVideoConnection()
+        {
+            try
+            {
+                client = new TcpClient();
+                await client.ConnectAsync(serverIp, serverPort);
+                stream = client.GetStream();
+                isConnected = true;
+
+                if (!isRunning)
+                {
+                    isRunning = true;
+                    await Task.Run(() => ReceiveVideoStream());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Connection error: {ex.Message}");
+            }
+        }
+
+        private async Task ReceiveVideoStream()
+        {
+            try
+            {
+                byte[] lengthBuffer = new byte[4];
+
+                while (isConnected && isRunning)
+                {
+                    int bytesRead = await stream.ReadAsync(lengthBuffer, 0, 4);
+                    if (bytesRead != 4)
+                        break;
+
+                    if (BitConverter.IsLittleEndian)
+                        Array.Reverse(lengthBuffer);
+
+                    uint messageSize = BitConverter.ToUInt32(lengthBuffer, 0);
+
+                    byte[] jpegBuffer = new byte[messageSize];
+                    int totalBytesRead = 0;
+
+                    while (totalBytesRead < messageSize)
+                    {
+                        int chunkSize = Math.Min((int)messageSize - totalBytesRead, 8192);
+                        bytesRead = await stream.ReadAsync(jpegBuffer, totalBytesRead, chunkSize);
+                        if (bytesRead == 0)
+                            break;
+                        totalBytesRead += bytesRead;
+                    }
+
+                    if (totalBytesRead == messageSize)
+                    {
+                        using (MemoryStream ms = new MemoryStream(jpegBuffer))
+                        {
+                            var bitmap = new Bitmap(ms);
+                            this.Invoke(new Action(() =>
+                            {
+                                videoPictureBox.Image?.Dispose();
+                                videoPictureBox.Image = new Bitmap(bitmap);
+                            }));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Stream error: {ex.Message}");
+            }
+            finally
+            {
+                isConnected = false;
+                isRunning = false;
+                stream?.Close();
+                client?.Close();
+            }
+        }
+
+
+
+
+
+        private TcpClient client;
+        private NetworkStream stream;
+        private bool isConnected = false;
+        private bool isRunning = false;
+        private string serverIp = "192.168.137.66"; // 📍 Pi IP here
+        private int serverPort = 8485;             // 📍 Port Pi uses
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void videoPictureBox_Click(object sender, EventArgs e)
         {
 
         }

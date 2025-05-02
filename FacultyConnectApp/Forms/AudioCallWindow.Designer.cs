@@ -1,5 +1,11 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
+using System.Net;
+using System.Net.Sockets;
+using System.Threading.Tasks;
+using NAudio.Wave;
+
+
 
 namespace FacultyConnectApp.Forms
 {
@@ -39,7 +45,7 @@ namespace FacultyConnectApp.Forms
             this.SuspendLayout();
 
             this.ClientSize = new System.Drawing.Size(450, 250);
-            this.BackgroundImage = Image.FromFile("BackgroundPic.jpg");
+           // this.BackgroundImage = Image.FromFile("BackgroundPic.jpg");
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             // 
@@ -93,7 +99,9 @@ namespace FacultyConnectApp.Forms
 
         private System.Windows.Forms.Label lblAudioStatus;
         private System.Windows.Forms.Button btnEndCall;
-        private System.Windows.Forms.PictureBox picPhoneIcon;
+      
+
+                  // Same as what Pi is listening on
 
 
         #endregion
