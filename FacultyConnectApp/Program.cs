@@ -15,6 +15,9 @@ namespace FacultyConnectApp
         [STAThread]
         static void Main()
         {
+            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+            System.Net.ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
+
             FirestoreHelper.SetEnvireomentVariable();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

@@ -41,56 +41,65 @@
             // 
             // UserBox
             // 
+            this.UserBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.UserBox.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.UserBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserBox.ForeColor = System.Drawing.Color.DimGray;
-            this.UserBox.Location = new System.Drawing.Point(236, 151);
+            this.UserBox.Location = new System.Drawing.Point(236, 132);
             this.UserBox.Name = "UserBox";
-            this.UserBox.Size = new System.Drawing.Size(261, 20);
+            this.UserBox.Size = new System.Drawing.Size(277, 25);
             this.UserBox.TabIndex = 0;
             this.UserBox.Text = "Username";
             // 
             // PassBox
             // 
+            this.PassBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PassBox.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.PassBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PassBox.ForeColor = System.Drawing.Color.DimGray;
-            this.PassBox.Location = new System.Drawing.Point(236, 197);
+            this.PassBox.Location = new System.Drawing.Point(236, 178);
             this.PassBox.Name = "PassBox";
-            this.PassBox.Size = new System.Drawing.Size(261, 20);
+            this.PassBox.Size = new System.Drawing.Size(277, 25);
             this.PassBox.TabIndex = 2;
             this.PassBox.Text = "Password";
             // 
             // ZipBox
             // 
+            this.ZipBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ZipBox.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.ZipBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ZipBox.ForeColor = System.Drawing.Color.DimGray;
-            this.ZipBox.Location = new System.Drawing.Point(236, 302);
+            this.ZipBox.Location = new System.Drawing.Point(236, 275);
             this.ZipBox.Name = "ZipBox";
-            this.ZipBox.Size = new System.Drawing.Size(261, 20);
+            this.ZipBox.Size = new System.Drawing.Size(277, 25);
             this.ZipBox.TabIndex = 4;
             this.ZipBox.Text = "Zip Code";
             // 
             // GenBox
             // 
+            this.GenBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.GenBox.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.GenBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GenBox.ForeColor = System.Drawing.Color.DimGray;
             this.GenBox.FormattingEnabled = true;
             this.GenBox.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.GenBox.Location = new System.Drawing.Point(236, 249);
+            this.GenBox.Location = new System.Drawing.Point(236, 227);
             this.GenBox.Name = "GenBox";
-            this.GenBox.Size = new System.Drawing.Size(261, 21);
+            this.GenBox.Size = new System.Drawing.Size(277, 25);
             this.GenBox.TabIndex = 5;
             this.GenBox.Text = "Gender";
             // 
             // BackToLoginBtn
             // 
+            this.BackToLoginBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BackToLoginBtn.BackColor = System.Drawing.SystemColors.Highlight;
-            this.BackToLoginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackToLoginBtn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BackToLoginBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BackToLoginBtn.Location = new System.Drawing.Point(236, 352);
+            this.BackToLoginBtn.Location = new System.Drawing.Point(236, 336);
             this.BackToLoginBtn.Name = "BackToLoginBtn";
-            this.BackToLoginBtn.Size = new System.Drawing.Size(121, 48);
+            this.BackToLoginBtn.Size = new System.Drawing.Size(277, 25);
             this.BackToLoginBtn.TabIndex = 8;
             this.BackToLoginBtn.Text = "Back to Login";
             this.BackToLoginBtn.UseVisualStyleBackColor = false;
@@ -98,12 +107,13 @@
             // 
             // RegBtn
             // 
+            this.RegBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RegBtn.BackColor = System.Drawing.SystemColors.Highlight;
-            this.RegBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RegBtn.ForeColor = System.Drawing.Color.Snow;
-            this.RegBtn.Location = new System.Drawing.Point(376, 352);
+            this.RegBtn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.RegBtn.Location = new System.Drawing.Point(236, 373);
             this.RegBtn.Name = "RegBtn";
-            this.RegBtn.Size = new System.Drawing.Size(121, 48);
+            this.RegBtn.Size = new System.Drawing.Size(277, 25);
             this.RegBtn.TabIndex = 9;
             this.RegBtn.Text = "Register User";
             this.RegBtn.UseVisualStyleBackColor = false;
@@ -111,15 +121,15 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(301, 23);
+            this.pictureBox1.Location = new System.Drawing.Point(316, 13);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(113, 112);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // RegisterForms
             // 
@@ -136,6 +146,7 @@
             this.Name = "RegisterForms";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegisterForms";
+            this.Load += new System.EventHandler(this.RegisterForms_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

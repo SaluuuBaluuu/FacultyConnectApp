@@ -48,11 +48,6 @@ namespace FacultyConnectApp.Forms
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-           
-            
-
-
-
 
         }
 
@@ -84,6 +79,16 @@ namespace FacultyConnectApp.Forms
 
             }
             return false;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RegisterForms_Load(object sender, EventArgs e)
+        {
+
         }
     }
 
