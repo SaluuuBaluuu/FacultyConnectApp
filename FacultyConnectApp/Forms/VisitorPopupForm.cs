@@ -53,5 +53,10 @@ namespace FacultyConnectApp.Forms
         {
 
         }
+
+        private void lblVisitorName_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

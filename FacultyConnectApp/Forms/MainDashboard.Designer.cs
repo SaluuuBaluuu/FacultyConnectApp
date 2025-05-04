@@ -1,4 +1,6 @@
-﻿namespace FacultyConnectApp.Forms
+﻿using static Google.Rpc.Context.AttributeContext.Types;
+
+namespace FacultyConnectApp.Forms
 {
     partial class MainDashboard
     {
@@ -40,10 +42,14 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelVisitorMessage = new System.Windows.Forms.Panel();
-            this.lblVisitorMessage = new System.Windows.Forms.Label();
-            this.lblVisitorName = new System.Windows.Forms.Label();
-            this.lblStudentNumber = new System.Windows.Forms.Label();
+            this.btnRestartListener = new System.Windows.Forms.Button();
+            this.btnTestFirebase = new System.Windows.Forms.Button();
+            this.statusLabel = new System.Windows.Forms.Label();
             this.lblPurpose = new System.Windows.Forms.Label();
+            this.lblStudentNumber = new System.Windows.Forms.Label();
+            this.lblVisitorName = new System.Windows.Forms.Label();
+            this.lblVisitorMessage = new System.Windows.Forms.Label();
+            this.btnTestRequest = new System.Windows.Forms.Button();
             this.panelSidebar.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -196,6 +202,10 @@
             // panelVisitorMessage
             // 
             this.panelVisitorMessage.BackColor = System.Drawing.Color.White;
+            this.panelVisitorMessage.Controls.Add(this.btnTestRequest);
+            this.panelVisitorMessage.Controls.Add(this.btnRestartListener);
+            this.panelVisitorMessage.Controls.Add(this.btnTestFirebase);
+            this.panelVisitorMessage.Controls.Add(this.statusLabel);
             this.panelVisitorMessage.Controls.Add(this.lblPurpose);
             this.panelVisitorMessage.Controls.Add(this.lblStudentNumber);
             this.panelVisitorMessage.Controls.Add(this.lblVisitorName);
@@ -206,6 +216,62 @@
             this.panelVisitorMessage.Name = "panelVisitorMessage";
             this.panelVisitorMessage.Size = new System.Drawing.Size(482, 273);
             this.panelVisitorMessage.TabIndex = 6;
+            this.panelVisitorMessage.Paint += new System.Windows.Forms.PaintEventHandler(this.panelVisitorMessage_Paint);
+            // 
+            // btnRestartListener
+            // 
+            this.btnRestartListener.Location = new System.Drawing.Point(332, 58);
+            this.btnRestartListener.Name = "btnRestartListener";
+            this.btnRestartListener.Size = new System.Drawing.Size(104, 23);
+            this.btnRestartListener.TabIndex = 10;
+            this.btnRestartListener.Text = "Restart Listener";
+            this.btnRestartListener.UseVisualStyleBackColor = true;
+            // 
+            // btnTestFirebase
+            // 
+            this.btnTestFirebase.Location = new System.Drawing.Point(332, 87);
+            this.btnTestFirebase.Name = "btnTestFirebase";
+            this.btnTestFirebase.Size = new System.Drawing.Size(104, 23);
+            this.btnTestFirebase.TabIndex = 9;
+            this.btnTestFirebase.Text = "Test Firebase";
+            this.btnTestFirebase.UseVisualStyleBackColor = true;
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.AutoSize = true;
+            this.statusLabel.Location = new System.Drawing.Point(182, 20);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(37, 13);
+            this.statusLabel.TabIndex = 8;
+            this.statusLabel.Text = "Status";
+            this.statusLabel.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // lblPurpose
+            // 
+            this.lblPurpose.AutoSize = true;
+            this.lblPurpose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPurpose.Location = new System.Drawing.Point(97, 135);
+            this.lblPurpose.Name = "lblPurpose";
+            this.lblPurpose.Size = new System.Drawing.Size(0, 16);
+            this.lblPurpose.TabIndex = 7;
+            // 
+            // lblStudentNumber
+            // 
+            this.lblStudentNumber.AutoSize = true;
+            this.lblStudentNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStudentNumber.Location = new System.Drawing.Point(97, 98);
+            this.lblStudentNumber.Name = "lblStudentNumber";
+            this.lblStudentNumber.Size = new System.Drawing.Size(0, 16);
+            this.lblStudentNumber.TabIndex = 6;
+            // 
+            // lblVisitorName
+            // 
+            this.lblVisitorName.AutoSize = true;
+            this.lblVisitorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVisitorName.Location = new System.Drawing.Point(97, 58);
+            this.lblVisitorName.Name = "lblVisitorName";
+            this.lblVisitorName.Size = new System.Drawing.Size(0, 16);
+            this.lblVisitorName.TabIndex = 5;
             // 
             // lblVisitorMessage
             // 
@@ -217,35 +283,15 @@
             this.lblVisitorMessage.TabIndex = 0;
             this.lblVisitorMessage.Text = "Visitor Message";
             // 
-            // lblVisitorName
+            // btnTestRequest
             // 
-            this.lblVisitorName.AutoSize = true;
-            this.lblVisitorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVisitorName.Location = new System.Drawing.Point(97, 58);
-            this.lblVisitorName.Name = "lblVisitorName";
-            this.lblVisitorName.Size = new System.Drawing.Size(87, 16);
-            this.lblVisitorName.TabIndex = 5;
-            this.lblVisitorName.Text = "Visitor Name:";
-            // 
-            // lblStudentNumber
-            // 
-            this.lblStudentNumber.AutoSize = true;
-            this.lblStudentNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStudentNumber.Location = new System.Drawing.Point(97, 98);
-            this.lblStudentNumber.Name = "lblStudentNumber";
-            this.lblStudentNumber.Size = new System.Drawing.Size(106, 16);
-            this.lblStudentNumber.TabIndex = 6;
-            this.lblStudentNumber.Text = "Student Number:";
-            // 
-            // lblPurpose
-            // 
-            this.lblPurpose.AutoSize = true;
-            this.lblPurpose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPurpose.Location = new System.Drawing.Point(97, 135);
-            this.lblPurpose.Name = "lblPurpose";
-            this.lblPurpose.Size = new System.Drawing.Size(100, 16);
-            this.lblPurpose.TabIndex = 7;
-            this.lblPurpose.Text = "Reason of Visit:";
+            this.btnTestRequest.Location = new System.Drawing.Point(329, 116);
+            this.btnTestRequest.Name = "btnTestRequest";
+            this.btnTestRequest.Size = new System.Drawing.Size(124, 23);
+            this.btnTestRequest.TabIndex = 11;
+            this.btnTestRequest.Text = "Test Request";
+            this.btnTestRequest.UseVisualStyleBackColor = true;
+            this.btnTestRequest.Click += new System.EventHandler(this.btnTestRequest_Click);
             // 
             // MainDashboard
             // 
@@ -290,5 +336,9 @@
         private System.Windows.Forms.Label lblVisitorName;
         private System.Windows.Forms.Label lblPurpose;
         private System.Windows.Forms.Label lblStudentNumber;
+        private System.Windows.Forms.Label statusLabel;
+        private System.Windows.Forms.Button btnRestartListener;
+        private System.Windows.Forms.Button btnTestFirebase;
+        private System.Windows.Forms.Button btnTestRequest;
     }
 }
