@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Microsoft.Web.WebView2.WinForms;
 using System.Net.Sockets;
 using System.IO;
+using System.Diagnostics;
 
 
 
@@ -38,7 +39,23 @@ namespace FacultyConnectApp.Forms
 
         private void btnSwitchToAudio_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // Create and show the audio call window
+                AudioCallWindow audioWindow = new AudioCallWindow();
+                audioWindow.Show();
 
+                // Close the current video call window
+                this.Close();
+
+                Debug.WriteLine("Switched from video call to audio call");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error switching to audio call: {ex.Message}");
+                MessageBox.Show($"Error switching to audio call: {ex.Message}",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void videoBrowser_Click(object sender, EventArgs e)
@@ -140,6 +157,11 @@ namespace FacultyConnectApp.Forms
         }
 
         private void videoPictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelTopBar_Paint(object sender, PaintEventArgs e)
         {
 
         }

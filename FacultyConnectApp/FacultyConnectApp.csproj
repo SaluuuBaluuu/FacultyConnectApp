@@ -23,7 +23,9 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>0</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <DocumentationFile>bin\Debug\FacultyConnectApp.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -198,6 +200,12 @@
     <Compile Include="Classes\Security.cs" />
     <Compile Include="Classes\UserData.cs" />
     <Compile Include="Classes\VisitorRequest.cs" />
+    <Compile Include="Forms\AudioCallRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AudioCallRequestForm.Designer.cs">
+      <DependentUpon>AudioCallRequestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AudioCallWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +244,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AudioCallRequestForm.resx">
+      <DependentUpon>AudioCallRequestForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AudioCallWindow.resx">
       <DependentUpon>AudioCallWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -346,6 +357,18 @@
   <ItemGroup>
     <None Include="Resources\uzkn.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white-phone-icon-on-blue-background-vector-7352042.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %281%291.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %281%292.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -360,4 +383,8 @@
   <Import Project="..\packages\Grpc.Core.2.46.6\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.2.46.6\build\net45\Grpc.Core.targets')" />
   <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" />
   <Import Project="..\packages\Microsoft.Web.WebView2.1.0.3179.45\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.3179.45\build\Microsoft.Web.WebView2.targets')" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
 </Project>

@@ -41,13 +41,18 @@ namespace FacultyConnectApp.Forms
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.ClientSize = new System.Drawing.Size(450, 250);
             this.SuspendLayout();
-
-            this.ClientSize = new System.Drawing.Size(450, 250);
-           // this.BackgroundImage = Image.FromFile("BackgroundPic.jpg");
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::FacultyConnectApp.Properties.Resources.download__1_2;
+            this.pictureBox1.Location = new System.Drawing.Point(-655, -132);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(872, 619);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
@@ -55,40 +60,37 @@ namespace FacultyConnectApp.Forms
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(120, 150);
+            this.label1.Location = new System.Drawing.Point(46, 227);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(183, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Connecting to Visitor...";
-           
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(174, 40);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(165, 190);
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(83, 261);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 30);
             this.button1.TabIndex = 1;
             this.button1.Text = "End Call";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
-
+            this.button1.FlatStyle = FlatStyle.Flat;
+            this.button1.FlatAppearance.BorderSize = 0; 
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             // 
             // AudioCallWindow
             // 
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(450, 250);
+            this.ClientSize = new System.Drawing.Size(273, 383);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AudioCallWindow";
             this.Load += new System.EventHandler(this.AudioCallWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

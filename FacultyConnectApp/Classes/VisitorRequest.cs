@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace FacultyConnectApp.Models
 {
+    // In your VisitorRequest.cs file, ensure the timestamp is initialized correctly
     public class VisitorRequest
     {
         [JsonProperty("visitor_name")]
@@ -18,21 +19,20 @@ namespace FacultyConnectApp.Models
         [JsonProperty("purpose")]
         public string purpose { get; set; }
 
-        // Add a timestamp property that might be used in some implementations
         [JsonProperty("timestamp")]
         public string timestamp { get; set; }
 
-        // Default constructor (required for deserialization)
+        // Default constructor
         public VisitorRequest()
         {
-            // Default constructor
+            // Set the timestamp to current time by default
             timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         }
 
         // Override ToString for debugging
         public override string ToString()
         {
-            return $"Visitor: {visitor_name}, Student#: {student_number}, Purpose: {purpose}";
+            return $"Visitor: {visitor_name}, Student#: {student_number}, Purpose: {purpose}, Time: {timestamp}";
         }
     }
 }

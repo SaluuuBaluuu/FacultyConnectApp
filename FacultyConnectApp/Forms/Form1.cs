@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using static FacultyConnectApp.Classes.UserData;
 using static FacultyConnectApp.Classes.FirestoreHelper;
 using FacultyConnectApp.Classes;
+using System.Diagnostics;
 
 namespace FacultyConnectApp
 {
@@ -80,6 +81,17 @@ namespace FacultyConnectApp
             RegisterForms form = new RegisterForms();
             form.ShowDialog();
             Close();
+        }
+
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+
+            // Only run this code in Debug mode
+            #if DEBUG
+            // Force terminate the application immediately
+            Process.GetCurrentProcess().Kill();
+            #endif
         }
     }
 }

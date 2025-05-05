@@ -40,7 +40,7 @@
             // 
             // panelTopBar
             // 
-            this.panelTopBar.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.panelTopBar.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panelTopBar.Controls.Add(this.btnEndCall);
             this.panelTopBar.Controls.Add(this.btnSwitchToAudio);
             this.panelTopBar.Dock = System.Windows.Forms.DockStyle.Top;
@@ -48,6 +48,7 @@
             this.panelTopBar.Name = "panelTopBar";
             this.panelTopBar.Size = new System.Drawing.Size(784, 40);
             this.panelTopBar.TabIndex = 0;
+            this.panelTopBar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTopBar_Paint);
             // 
             // btnEndCall
             // 

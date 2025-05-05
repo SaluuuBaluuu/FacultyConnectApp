@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
 using NAudio.Wave;
+using Firebase.Database;
+using System.Diagnostics;
+using Firebase.Database.Query;
 
 
 
@@ -22,9 +25,12 @@ namespace FacultyConnectApp.Forms
 {
     public partial class AudioCallWindow : Form
     {
+        private string lecturerName = "Tom Walingo";
         public AudioCallWindow()
         {
             InitializeComponent();
+            pictureBox1.SendToBack();
+            pictureBox1.Dock = DockStyle.Fill;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -40,13 +46,52 @@ namespace FacultyConnectApp.Forms
 
         }
 
-        private void AudioCallWindow_Load(object sender, EventArgs e)
+        private async void AudioCallWindow_Load(object sender, EventArgs e)
         {
-            
-           
+            if (await CheckCallRequestAccepted())
+            {
+                StartSendingAudio();
+                pictureBox1.Controls.Add(label1);
+                pictureBox1.Controls.Add(button1);
+                label1.BackColor = Color.Transparent;
+            }
+            else
+            {
+                // Call was rejected or there was an error
+                MessageBox.Show("Call was rejected or is no longer active", "Call Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+
             StartSendingAudio();
+            pictureBox1.Controls.Add(label1);
+            pictureBox1.Controls.Add(button1);
+            label1.BackColor = Color.Transparent;
 
+        }
 
+        // Add this method to check if call was accepted
+        private async Task<bool> CheckCallRequestAccepted()
+        {
+            try
+            {
+                var client = new FirebaseClient("https://facultyconnectav-default-rtdb.asia-southeast1.firebasedatabase.app/");
+
+                // Get the call request status
+                var status = await client
+                    .Child("lecturers")
+                    .Child(lecturerName)
+                    .Child("audio_call_request")
+                    .Child("status")
+                    .OnceSingleAsync<string>();
+
+                return status == "accepted";
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error checking call status: {ex.Message}");
+                return false;
+            }
         }
 
 
@@ -102,12 +147,15 @@ namespace FacultyConnectApp.Forms
         private string piIPAddress = "172.20.10.3";  // ⬅️ Replace with your Pi's actual IP!
         private int destinationPort = 9001;            // Same as what Pi is listening on
 
-    
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
 
-    
+        }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
 
-
+        }
     }
 
 }

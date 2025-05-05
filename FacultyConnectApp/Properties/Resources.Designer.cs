@@ -63,6 +63,36 @@ namespace FacultyConnectApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap download__1_ {
+            get {
+                object obj = ResourceManager.GetObject("download (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download__1_1 {
+            get {
+                object obj = ResourceManager.GetObject("download (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download__1_2 {
+            get {
+                object obj = ResourceManager.GetObject("download (1)2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ukznlogo {
             get {
                 object obj = ResourceManager.GetObject("ukznlogo", resourceCulture);
@@ -86,6 +116,16 @@ namespace FacultyConnectApp.Properties {
         internal static System.Drawing.Bitmap uzkn {
             get {
                 object obj = ResourceManager.GetObject("uzkn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap white_phone_icon_on_blue_background_vector_7352042 {
+            get {
+                object obj = ResourceManager.GetObject("white-phone-icon-on-blue-background-vector-7352042", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
